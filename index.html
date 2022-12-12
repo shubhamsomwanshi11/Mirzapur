@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dailywork Report</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
+    <script src="./index.js"></script>
+    <style>
+        .custom-shape-divider-top-1669092866 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .custom-shape-divider-top-1669092866 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 218px;
+        }
+
+        .custom-shape-divider-top-1669092866 .shape-fill {
+            fill: #FFFFFF;
+        }
+
+        /** For mobile devices **/
+        @media (max-width: 767px) {
+            .custom-shape-divider-top-1669092866 svg {
+                width: calc(100% + 1.3px);
+                height: 252px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero is-fullheight has-background-success">
+        <div class="custom-shape-divider-top-1669092866">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="container mt-6" style="display: flex; justify-content: center; align-items: center;">
+            <div class="is-centered">
+                <video src="" id="image" autoplay style="height: 200px;">
+
+                </video>
+
+                    <div class="field">
+                        <label class="label">Enter Your Marks Here : </label>
+                        <div class="control">
+                            <input class="input" id="marks" type="number" placeholder="Text input" max="100" min="0">
+                        </div>
+                    </div>
+
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button  class="button is-link mr-3" onclick="Showmarks()">Submit</button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-link is-light">Cancel</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
