@@ -9,68 +9,178 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
     <script src="./index.js"></script>
     <style>
-        .custom-shape-divider-top-1669092866 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            transform: rotate(180deg);
+        @import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+        body {
+            margin: 0;
         }
 
-        .custom-shape-divider-top-1669092866 svg {
+        h1 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            letter-spacing: 2px;
+            font-size: 48px;
+        }
+
+        p {
+            font-family: 'Lato', sans-serif;
+            letter-spacing: 1px;
+            font-size: 14px;
+            color: #333333;
+        }
+
+        .header {
             position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 218px;
+            text-align: center;
+            background: linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
+            color: white;
         }
 
-        .custom-shape-divider-top-1669092866 .shape-fill {
-            fill: #FFFFFF;
+        .logo {
+            width: 50px;
+            fill: white;
+            padding-right: 15px;
+            display: inline-block;
+            vertical-align: middle;
         }
 
-        /** For mobile devices **/
-        @media (max-width: 767px) {
-            .custom-shape-divider-top-1669092866 svg {
-                width: calc(100% + 1.3px);
-                height: 252px;
+        .inner-header {
+            height: 65vh;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .flex {
+            /*Flexbox for containers*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .waves {
+            position: relative;
+            width: 100%;
+            height: 15vh;
+            margin-bottom: -7px;
+            /*Fix for safari gap*/
+            min-height: 100px;
+            max-height: 150px;
+        }
+
+        .content {
+            position: relative;
+            height: 20vh;
+            text-align: center;
+            background-color: white;
+        }
+
+        /* Animation */
+
+        .parallax>use {
+            animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+        }
+
+        .parallax>use:nth-child(1) {
+            animation-delay: -2s;
+            animation-duration: 7s;
+        }
+
+        .parallax>use:nth-child(2) {
+            animation-delay: -3s;
+            animation-duration: 10s;
+        }
+
+        .parallax>use:nth-child(3) {
+            animation-delay: -4s;
+            animation-duration: 13s;
+        }
+
+        .parallax>use:nth-child(4) {
+            animation-delay: -5s;
+            animation-duration: 20s;
+        }
+
+        @keyframes move-forever {
+            0% {
+                transform: translate3d(-90px, 0, 0);
+            }
+
+            100% {
+                transform: translate3d(85px, 0, 0);
+            }
+        }
+
+        /*Shrinking for mobile*/
+        @media (max-width: 768px) {
+            .waves {
+                height: 40px;
+                min-height: 40px;
+            }
+
+            .content {
+                height: 30vh;
+            }
+
+            h1 {
+                font-size: 24px;
             }
         }
     </style>
 </head>
 
 <body>
-    <section class="hero is-fullheight has-background-success">
-        <div class="custom-shape-divider-top-1669092866">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                preserveAspectRatio="none">
-                <path
-                    d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                    class="shape-fill"></path>
-            </svg>
-        </div>
-        <div class="container mt-6" style="display: flex; justify-content: center; align-items: center;">
-            <div class="is-centered">
-                <video src="" id="image" autoplay style="height: 200px;">
+    <section class="hero is-fullheight">
+        <div class="header">
 
-                </video>
+            <!--Content before waves-->
+            <div class="inner-header flex">
+                <!--Just the logo.. Don't mind this-->
+                <div class="container mt-6" style="display: flex; justify-content: center; align-items: center;">
+                    <div class="is-centered">
+                        <h1>Result Checker Ft. Mirzapur</h1>
+                        <video src="" id="image" autoplay style="height: 200px;">
 
-                    <div class="field">
-                        <label class="label">Enter Your Marks Here : </label>
-                        <div class="control">
-                            <input class="input" id="marks" type="number" placeholder="Text input" max="100" min="0">
+                        </video>
+                        <div><b><h2 id="result"></h2></b></div>
+                        <div class="field">
+                            <label class="label">Enter Your Marks Here : </label>
+                            <div class="control">
+                                <input class="input" id="marks" type="number" placeholder="Text input" max="100"
+                                    min="0">
+                            </div>
+                        </div>
+
+                        <div class="field is-grouped">
+                            <div class="control">
+                                <button class="button is-success mr-3" onclick="Showmarks()">Submit</button>
+                            </div>
+                            <div class="control">
+                                <button class="button is-link is-light"  id="cancle()">Cancel</button>
+                            </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="field is-grouped">
-                        <div class="control">
-                            <button  class="button is-link mr-3" onclick="Showmarks()">Submit</button>
-                        </div>
-                        <div class="control">
-                            <button class="button is-link is-light">Cancel</button>
-                        </div>
-                    </div>
+
+            </div>
+
+            <!--Waves Container-->
+            <div>
+                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                    <defs>
+                        <path id="gentle-wave"
+                            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                    </defs>
+                    <g class="parallax">
+                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                    </g>
+                </svg>
             </div>
         </div>
     </section>
